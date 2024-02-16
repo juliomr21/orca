@@ -1,0 +1,50 @@
+.info-cart{
+    top: 3px;
+  right: 10px;
+  background: aliceblue;
+  z-index: 20;
+  position: absolute;
+  border: #9daded solid 1px;
+  width: 420px;
+  border-radius: 3px;
+}
+.cant-prod{
+    padding-left: 1rem;
+    padding-right: 1.7rem;
+    text-align: center;
+}
+@media(max-width:450px){
+    .info-cart{
+        right: auto;
+        width: 90%;
+       
+    }
+    .top15{
+        margin-top: 15px;
+    }
+    .w-center{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+@media(min-width:451px){
+    .flex{
+        display: flex;
+    }
+    .w-center{
+        width: 675px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+ appearance:  textfield; /* Firefox */
+}
+

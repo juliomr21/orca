@@ -1,0 +1,27 @@
+<p>productos works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-6" *ngFor="let product of products">
+            <div class="border shadow-lg" style=" margin-top: 10px; height: auto; ">
+                <div class="container" >
+                    <div style="width: max-content;margin-left: auto;margin-right: auto;">
+                        <img [src]="product.image" alt="" style="height: 220px; width: 215px;margin-top: 40px;">
+                    </div>
+
+                    <hr class="centrar" style="width: 90%;">
+                    <h4>
+                        {{product.title}}
+                    </h4>
+                    <h3>
+                        {{product.price}}
+                    </h3>
+                    <button class="btn btn-primary form-control" >Comprar</button>
+
+                    <div style="height: 20px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

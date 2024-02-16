@@ -1,0 +1,50 @@
+<div class="container">
+    <div style="margin-top: 50px;"></div>
+ <div class="login-card" style="width: 85%; height: 500px;margin-left: auto;margin-right: auto;">
+    <div style="height: 30px;"></div>
+    <h2 class="text-center">Register</h2>
+    <div style="margin-top: 30px;">
+
+
+        <div>
+            <label for="">Username</label>
+        </div>
+        <input class="form-control" type="text" [(ngModel)]="user">
+
+    </div>
+
+    <div style="margin-top: 10px;">
+
+        <div>
+            <label for="">Password</label>
+        </div>
+        <input class="form-control" type="password" [(ngModel)]="password">
+
+    </div>
+    <div style="margin-top: 20px;">
+
+    </div>
+    <div *ngIf="msg" class="alert alert-danger text-center"
+        style="--bs-alert-padding-y: 1%; margin-bottom: 6px;">
+        Username or Password incorrect
+    </div>
+    <button class="btn btn-primary form-control" (click)="create()">
+        <div *ngIf="!loading" >
+            <div class="text-center">
+             Crear
+            </div>
+            
+         </div>
+        <div style="display: flex;">
+           
+            <div *ngIf="loading">
+                Loading...
+            </div>
+            <div *ngIf="loading" class="spinner-border text-secondary" role="status" style="margin-left: auto;margin-right: 30px; margin-top: 3px; --bs-spinner-width: 1rem;
+            --bs-spinner-height: 1rem;">
+             
+            </div>
+        </div>
+    </button>
+ </div>
+</div>

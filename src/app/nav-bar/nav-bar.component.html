@@ -1,0 +1,151 @@
+<div class="w-100" style="background: #2f3b69;">
+    <div style="height: 1px;"></div>
+   <div class="d-none d-md-block">
+    <div class="row ">
+        <div class="col-3">
+            <a [routerLink]="['']"><img src="assets/oficial.png" alt="" style="width: 75%"></a>
+            
+        </div>
+        <div class="col-6 mt-5">
+            <input class="form-control" type="text">
+        </div>
+       
+        <div class="col-1 mt-5">
+            <div style="color: aliceblue; width: max-content; margin-left: auto;"><i class="fa-solid fa-user fa-2xl" style="color: aliceblue;"></i></div>
+            <div class="mt-2" style="color: aliceblue; width: max-content; margin-left: auto;">
+                <p style="color: aliceblue;font-size: medium;">User</p>
+            </div>
+        </div>
+        <div class="col-1 mt-5">
+            <button style="color: aliceblue;background: transparent;border: transparent; width: max-content; margin-left: auto;margin-right: auto;" (click)="show=true">
+                <i class="fa-solid fa-cart-shopping fa-2xl" ></i>
+                <span *ngIf="bage" class="position-absolute   translate-middle badge rounded-pill bg-danger">
+                    {{bage}}
+               </span>
+                
+            </button>
+            <div  class="mt-2">
+                <p style="color: aliceblue;font-size: medium;width:  max-content; margin-right: auto;">My cart</p>
+            </div>
+        </div>
+       
+
+    </div>
+   </div>
+    
+    <div class="d-sm-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div style="margin-top: 30px;" [routerLink]="['store/products/category/all']">
+                        <img src="assets/Icon feather-menu.png" alt="" width="28px" height="20px">
+                    </div>
+                    
+                </div>
+                <div class="col-6">
+                    <a [routerLink]="['']"> <img src="assets/oficial.png" alt="" style="height: 100%;width: 100%;"></a>
+                   
+                </div>
+                <div class="col-3">
+                    <div style="color: aliceblue; width: max-content; margin-left: auto;margin-right: auto; margin-top: 25px;cursor: pointer;" (click)="show=true"><i class="fa-solid fa-cart-shopping fa-2xl" ></i>
+                        <span *ngIf="bage" class="position-absolute   translate-middle badge rounded-pill bg-danger">
+                            {{bage}}
+                       </span>
+                    </div>
+                    <div  class="mt-2">
+                        <p style="color: aliceblue;font-size: medium;width:  max-content; margin-left: auto;margin-right: auto;">My cart</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input class="form-control" type="text">
+            </div>
+        </div>
+        <div style="height: 25px;">
+
+        </div>
+    </div>
+    <div class="row" style="border-top: solid aliceblue 1px; color: aliceblue;">
+        <div class="col text-center" [routerLink]="['']" style="cursor: pointer;">Home</div>
+        <div class="col text-center" [routerLink]="['store/products/category/all']" style="cursor: pointer;">Products</div>
+        <!-- <div class="col text-center">Category</div>
+        <div class="col text-center">Electronics</div>
+        <div class="col text-center">Jewelery</div>
+        <div class="col text-center">Men's clothing</div>
+        <div class="col text-center">Women's clothing</div> -->
+
+    </div>
+   
+</div>
+<div style="width: 90%;margin-left: auto;margin-right: auto;">
+    <div *ngIf="show" class="info-cart" >
+        <div style="padding: 1rem;background: #2f3b69;color: aliceblue;display: flex;font-size: 25px;">
+        <div>
+         <b>Shopping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></b>
+        </div>
+         <div style="margin-left: auto;">
+             <button  style="color: aliceblue;font-size: 25px;background: transparent;border: transparent;" (click)="show = false">X</button>
+         </div>
+        
+        </div>
+        <div *ngIf="!bage">
+            The cart is empty
+        </div>
+        <div *ngIf="bage" >
+            <div style="overflow-y: auto; white-space: nowrap;  height: 300px;">
+                <div *ngFor="let it of cart_info" >
+                    <div  style="display: flex;padding: 1rem;text-align: left;color: #2f3b69;">
+                        <div style="width: 65px;">
+                            <img src="{{it.image}}" alt="" style="height: 100%;width: 100%;border-radius: 3px;">
+                        </div>
+                        <div style="margin-left: 15px;margin-right: auto;
+                               width: 200px;overflow: hidden;text-overflow: ellipsis;
+                               ">
+                            <div>{{it.product}}</div>
+                            <div style="display: flex;width: 135px;">
+                                
+                                <input type="number" class="form-control cant-prod" width="116px" min="1" value="{{it.cant}}"> 
+                                <div style="margin-left: -21px;">
+                                    <!-- <i class="fa fa-plus-square" aria-hidden="true"></i> -->
+                                    <div style="height: 17px;" ><i class="fa fa-plus-square " aria-hidden="true" style="font-size: 19px;" (click)="change_cant(1,it)"></i></div> 
+                                    <div  style="height: 17px;"><i class="fa fa-minus-square" aria-hidden="true" style="font-size: 19px;"(click)="change_cant(-1,it)"></i></div>
+                                    
+                                </div>
+                               
+                            </div>
+                           
+                           
+                        </div>
+                        <div style="width: 135px;text-align: right;" >
+                            <p style="cursor: pointer;" (click)="delete_producto(it.product)"><i class="fa fa-trash" aria-hidden="true"></i></p>
+                            <p>{{it.cant}} X {{it.value}} = <b>{{it.cant*it.value}}</b> </p>
+                        </div>
+                       
+                      
+                        
+                    </div>
+               
+                </div>
+            </div>
+          
+            <div class="container">
+                <hr>
+            </div>
+            
+            <div style="display: flex;padding: 1rem; color: #2f3b69;">
+                <div>
+                    <h2>Total:</h2>
+                    </div>
+                <div style="margin-left: auto;"> <h2>$ {{total}} </h2></div>
+            </div>
+            <div class="container" style="padding-bottom: 1rem;">
+                <button class="btn" style="width: 100%;background: #2f3b69;color: aliceblue;" (click)="go_to_payment()">
+                    Buy Now
+                </button>
+            </div>
+          
+        </div>
+       
+        </div>
+         
+</div>

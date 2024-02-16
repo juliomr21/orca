@@ -1,0 +1,66 @@
+<div style="height: 170px;"></div>
+<app-banner-carousel></app-banner-carousel>
+
+<div style=" background: rgb(211, 211, 230); height: 10px;"></div>
+<h2 class="text-center mt-4 mb-5" style="color: #2f3b69;;">Featured Products</h2>
+<div >
+    <div style="display: flex;" >
+        <button class="button-nav d-none d-md-block" (click)="scroll(-100)" ><i class="fa fa-chevron-left fa-3x" aria-hidden="true" style="margin-left: 20px;margin-right: 20px; color: #f68712;"></i>
+        </button>
+        <div class=" foto-list-container">
+            <div class=" foto-list " *ngFor="let product of  list_products_show">
+    
+                <div class="container " style=" box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;width: 250px;height: 350px; margin-right: 25px;">
+                    <div style="height: 20px;"></div>
+                    <div style="margin-left: auto;margin-right: auto;margin-bottom: 5px; ">
+                        <img src={{product.thumbnail}} alt="" style="height: 150px;width: 100%;">
+                    </div>
+                   
+                    <div class="text-center" style="font-size: large;overflow-x: auto;" >{{product.title}}</div>
+                    <p class="text-center" style="color: #7d879c;;" >{{product.category}}</p>
+                    
+                   <div >
+                    
+                        <p class="text-center" style="margin-right: auto;color: rgb(15, 77, 158);font-size:25px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> ${{product.price}}</p>
+                      
+                        
+                    </div>
+                    <div style="display: flex;align-items: center;justify-content: center;">
+                        <div style="margin-right: 10px;"><button class="btn " style="background: #2f3b69;color: aliceblue;" (click)="add(product.title,product.price,product.thumbnail)">Add to cart</button></div>
+                        <div><button class="btn btn-outline-primary" (click)="detail_product(product.id)">See more...</button></div>
+    
+                    </div>
+                   
+                </div>
+            </div>
+    
+        </div>
+        <button class="button-nav d-none d-md-block" (click)="scroll(100)" >
+            <i class="fa fa-chevron-right fa-3x" style="margin-left: 20px;margin-right: 20px; color: #f68712;" aria-hidden="true"></i>
+        </button>
+    </div>
+   
+</div>
+<div style="margin-top: 15px;height: 150px;background: #b9bec9;"> </div>
+<h2 class="text-center mt-4 mb-5" style="color: #2f3b69;;">Shop by categories</h2>
+<!-- <div class="row"  >
+    <div class="col-3" *ngFor="let category of  list_categories">
+    
+        <div  class="container" style=" box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;cursor: pointer; margin-right: 25px; margin-bottom: 20px;" (click)="show_category(category)">
+            
+            <div style="display: flex;">
+                <div style="background: #f68712;height: 50px;width: 100px;">
+                    <img src="assets/oficial.png" alt="" style="height: 50px;">
+                </div>
+                
+                <p class="text-center" style="color:#2f3b69;margin-left: auto;" >{{category|uppercase}}</p>
+            </div>
+            
+                                      
+        </div>
+    </div> ,
+   
+</div> -->
+
+
+

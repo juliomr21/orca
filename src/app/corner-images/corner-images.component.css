@@ -1,0 +1,57 @@
+.corner-images-container {
+    position: relative;
+    width: 80%px; /* ajusta el ancho según tus necesidades */
+    height: 300px; /* ajusta la altura según tus necesidades */
+    overflow: hidden;
+  }
+
+  .corner-image {
+    /* position: absolute; */
+    width: 30%; /* ajusta el ancho según tus necesidades */
+    height: 50%; /* ajusta la altura según tus necesidades */
+    opacity: 0;
+    /* transition: all 1s ease-in-out; */
+  }
+
+  /* .corner-image:nth-child(1) {
+    left: -50%;
+  }
+
+  .corner-image:nth-child(2) {
+    right: -50%;
+  }
+
+  .corner-images-container:hover .corner-image {
+    opacity: 1;
+    left: 0;
+    right: 0;
+  }
+
+  .corner-image:nth-child(2) {
+    margin-left: 350px;
+  } */
+  .kkk{
+    width: 150px;
+    height: 280px;
+    opacity: 0;
+    transition: right 5s ease-in-out; 
+    opacity: 1;
+    right: 25px;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /* O cualquier transformación que desees */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .element {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: fadeIn 3s ease-in-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
+  }

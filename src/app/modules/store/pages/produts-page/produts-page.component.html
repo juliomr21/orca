@@ -1,0 +1,175 @@
+<div class="container">
+    <div style="height: 190px;"></div>
+    <!-- <h2 class="text-center">Julio & Delbri shop</h2> -->
+    <div class="row">
+        <div class=" col-lg-3" style="background:#dbdee5; height: 450px;overflow-y: auto;">
+            <h2 class="text-center mt-3 mb-1" style="color: #2f3b69;;">Filters</h2>
+            <hr>
+            <div class="container mt-4">
+
+                <div style="display: flex; cursor: pointer;" (click)="orderView = !orderView">
+                    <b>
+                        Order by
+                    </b>
+
+                    <i *ngIf="!orderView" class="fa fa-angle-down" aria-hidden="true"
+                        style="margin-top: auto;margin-left: auto;"></i>
+                    <i *ngIf="orderView" class="fa fa-angle-up" aria-hidden="true"
+                        style="margin-top: auto;margin-left: auto;"></i>
+                </div>
+
+
+
+                <div *ngIf="orderView">
+                    <div class="form-check">
+                        <input id="relevance" name="order" type="radio" class="form-check-input" checked="" required=""
+                            (change)="change_order('Relevance')">
+                        <label class="form-check-label" for="relevance">Relevance</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="lower" name="order" type="radio" class="form-check-input" required=""
+                            (change)="change_order('Lower price')">
+                        <label class="form-check-label" for="lower">Lower price</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="higher" name="order" type="radio" class="form-check-input" required=""
+                            (change)="change_order('Higher price')">
+                        <label class="form-check-label" for="higher">Higher price</label>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <!-- PrecieView -->
+            <hr>
+            <div class="container" style="display: flex; cursor: pointer;" (click)="precieView = !precieView">
+                <b>
+                    Precie
+                </b>
+
+                <i *ngIf="!precieView" class="fa fa-angle-down" aria-hidden="true"
+                    style="margin-top: auto;margin-left: auto;"></i>
+                <i *ngIf="precieView" class="fa fa-angle-up" aria-hidden="true"
+                    style="margin-top: auto;margin-left: auto;"></i>
+            </div>
+            <!-- <hr> -->
+            <div *ngIf="precieView" class="container">
+                <div style="display: flex; align-items: baseline;">
+                    <div>
+                        <div>
+                            <label>Min.</label>
+                        </div>
+
+                        <input type="text" class="form-control" [(ngModel)]="priceMin">
+                    </div>
+
+                    <div style="margin-left: 10px;">
+                        <div>
+                            <label>Max.</label>
+                        </div>
+
+                        <input type="text" class="form-control" [(ngModel)]="priceMax">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CategoriesView -->
+            <hr>
+            <div class="container" style="display: flex; cursor: pointer;" (click)="categoriesView = !categoriesView">
+                <b>
+                    Categories
+                </b>
+
+                <i *ngIf="!categoriesView" class="fa fa-angle-down" aria-hidden="true"
+                    style="margin-top: auto;margin-left: auto;"></i>
+                <i *ngIf="categoriesView" class="fa fa-angle-up" aria-hidden="true"
+                    style="margin-top: auto;margin-left: auto;"></i>
+            </div>
+            <div class="container">
+                <input [checked]="category == 'all'" type="checkbox" checked name="" id="" value="" (change)="actualizaCategory('All')">
+                <label style="margin-left: 6px;">All</label>
+            </div>
+            <div *ngIf="!allCategories">
+                <div *ngIf="categoriesView" class="container">
+                    <div *ngFor="let item of list_category">
+                        <input [checked]="item == category" type="checkbox" name="" id="" value="" (change)="actualizaCategory(item)">
+                        <label style="margin-left: 6px;">{{item}}</label>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- MarcaView -->
+            <hr>
+            <div class="container" style="display: flex; cursor: pointer;" (click)="marcaView = !marcaView">
+                <b>
+                    Brand
+                </b>
+
+                <i *ngIf="!marcaView" class="fa fa-angle-down" aria-hidden="true"
+                    style="margin-top: auto;margin-left: auto;"></i>
+                <i *ngIf="marcaView" class="fa fa-angle-up" aria-hidden="true"
+                    style="margin-top: auto;margin-left: auto;"></i>
+            </div>
+
+            <div class="container" >
+                <input  type="checkbox" name="" id="" value="" (change)="actualizaMarca('All')" [checked]="allBrand">
+                <label style="margin-left: 6px;">All</label>
+                <div *ngIf="!marcaView ">
+                    <div *ngFor="let item of list_marca">
+                        <input [checked]="list_filterMarca.indexOf(item) != -1" type="checkbox" name="" id="" value="" (change)="actualizaMarca(item)">
+                        <label style="margin-left: 6px;">{{item}}</label>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div style="margin-right: 10px;margin-bottom: 20px;">
+                <button class="btn " style="width: 100%; background: #2f3b69;color: aliceblue;" (click)="first_filter()">
+                    <i class="fa fa-filter" aria-hidden="true"></i> <span style="margin-left: 15px;">Filter</span>
+                </button>
+            </div>
+        </div>
+        <div class=" col-lg-9" style="overflow-y: auto;height: 450px;">
+            <div *ngIf="list_products_show.length == 0 && filterInit" class="mt-5 text-center">
+             <h2>Not product found</h2>   
+            </div>
+            <div class="row">
+                <div class="col-lg-4" *ngFor="let product of  list_products_show">
+
+                    <div style=" box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;cursor: pointer;"
+                        (click)="detail_product(product.id)">
+                        <div style="height: 20px;"></div>
+                        <div style="margin-left: auto;margin-right: auto;margin-bottom: 5px;">
+                            <img src={{product.thumbnail}} alt="" style="height: 100%;width: 100%;">
+                        </div>
+                        <div class="container">
+                            <span style="color: #7d879c;;">{{product.category|uppercase}}</span>
+                            <p style="color:#2f3b69;">{{product.brand}}</p>
+                            <p>{{product.title}}</p>
+
+                            <div style="display: flex; ">
+
+                                <p style="margin-right: auto;color: rgb(15, 77, 158);font-size:20px;">
+                                    ${{product.price}}</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>

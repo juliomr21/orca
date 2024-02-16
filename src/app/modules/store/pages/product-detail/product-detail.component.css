@@ -1,0 +1,18 @@
+.foto-list-container {
+    width: 100%; /* O el ancho que desees */
+    overflow-x: auto;
+    white-space: nowrap; /* Para que las imágenes estén en la misma línea */
+  }
+  
+  .foto-list {
+    display: inline-block;
+  }
+  .button-nav {
+    margin: 5px;
+    background: transparent;
+    border: transparent;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+ 

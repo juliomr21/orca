@@ -1,0 +1,63 @@
+<div class="container">
+    <div style="margin-top: 50px;"></div>
+    <div class="login-card" style=" height: 410px;width: 300px; margin-left: auto;margin-right: auto;">
+        <div class="container">
+            <div style="height: 30px;"></div>
+            <h2 class="text-center">Login</h2>
+            <!-- <div class="container">
+                <hr>
+            </div> -->
+            <div style="margin-top: 30px;">
+
+
+                <div>
+                    <label for="">Username</label>
+                </div>
+                <input class="form-control" type="text" [(ngModel)]="user">
+
+            </div>
+
+            <div style="margin-top: 10px;">
+
+                <div>
+                    <label for="">Password</label>
+                </div>
+                <input class="form-control" type="password" [(ngModel)]="password">
+
+            </div>
+            <div style="margin-top: 20px;">
+
+            </div>
+            <div *ngIf="msg" class="alert alert-danger text-center"
+                style="--bs-alert-padding-y: 1%; margin-bottom: 6px;">
+                Username or Password incorrect
+            </div>
+            <button class="btn btn-primary form-control" (click)="login()">
+                <div *ngIf="!loading" >
+                    <div class="text-center">
+                     Login
+                    </div>
+                    
+                 </div>
+                <div style="display: flex;">
+                   
+                    <div *ngIf="loading">
+                        Loading...
+                    </div>
+                    <div *ngIf="loading" class="spinner-border text-secondary" role="status" style="margin-left: auto;margin-right: 30px; margin-top: 3px; --bs-spinner-width: 1rem;
+                    --bs-spinner-height: 1rem;">
+                     
+                    </div>
+                </div>
+            </button>
+            <button class="btn btn-secondary form-control" style="margin-top: 5px;" (click)="register()">Register</button>
+
+        </div>
+       
+
+    </div>
+    <div style="margin-top: 10px; margin-left: auto;margin-right: auto; width: max-content;">
+        <h6>usuario: mor_2314</h6>
+        <h6>senha: 83r5^_</h6>
+    </div>
+</div>

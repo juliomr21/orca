@@ -1,0 +1,83 @@
+
+<div class="container">
+
+    <div style="height: 250px;"></div>
+    <div class="row">
+           <div class="col-1 d-none d-md-block">
+            <div style="overflow-y: auto;height: 450px;">
+                <div *ngFor="let img of list_img_aux">
+                    <div style="margin-top: 25px; cursor: pointer;" ><img src={{img}} alt="" style="width: 100%;" (click)="actualizar_img(img)"></div>
+                </div>
+
+            </div>
+           </div>
+            <div class="col-lg-7 col-sm-12" >
+                <img src={{img_principal}} alt="" style=" width: 100%;height: 450px;">
+                
+            </div>
+            <div class="d-sm-none mb-4" style="overflow-x: auto;white-space: nowrap; " >
+                <div  *ngFor="let img of list_img_aux"  style="display: inline-block;">
+                    <div style="margin-top: 25px; cursor: pointer; height: 50px;width: 50px; margin-right: 10px;" ><img src={{img}} alt="" style="width: 100%;height: 100%;border-radius: 6px;"  (click)="actualizar_img(img)"></div>
+                </div>
+
+            </div>
+            <div class="col-lg-4" style="margin-left: auto;">
+                <h2>{{producto.title|uppercase}}</h2>
+                <h4 style="color: darkgrey;">{{producto.category}}</h4>
+                              
+                <p style="margin-right: auto;color: rgb(15, 77, 158);font-size:30px;"> ${{producto.price}}</p>
+                <div style="display: flex;">
+                    <button class="btn btn-primary"(click)="add_to_cart()"><span style="margin-right: 10px;" ><i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    </span>Add to Cart</button>
+                    
+                    <div style="margin-left: 20px; display: flex; ;border-radius: 5px;">
+                        
+                        
+                        <input type="number" class="text-center" style="width: 45px;border-radius: 5px;" placeholder="1" min="1" [(ngModel)]="cant">
+                      
+                    </div>
+                </div>
+                
+                
+                <h4 style="margin-top: 15px;">Product description</h4>
+                <p style="color: darkgray;">{{producto.description}}</p>
+            </div>
+    
+      
+    </div>
+    <hr>
+    <h2 class="text-center mt-5 mb-5" style="color: #2f3b69;;">Similar Products</h2>
+   
+    <div style="display: flex;" >
+        <button class="button-nav" (click)="scroll(-100)" ><i class="fa fa-chevron-left fa-3x" aria-hidden="true" style="margin-left: 20px;margin-right: 20px; color: #f68712;"></i>
+        </button>
+        <div class=" foto-list-container">
+            <div class=" foto-list " *ngFor="let product of  lista_productos_similares">
+    
+                <div class="container " style=" box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;width: 250px;height: 350px; margin-right: 25px; cursor: pointer;" (click)="detail_product(product.id)">
+                    <div style="height: 20px;"></div>
+                    <div style="margin-left: auto;margin-right: auto;margin-bottom: 5px; ">
+                        <img src={{product.thumbnail}} alt="" style="height: 150px;width: 100%;">
+                    </div>
+                   
+                    <div class="text-center" style="font-size: large;overflow-x: auto;" >{{product.title}}</div>
+                    <p class="text-center" style="color: #7d879c;;" >{{product.category}}</p>
+                    
+                   <div >
+                    
+                        <p class="text-center" style="margin-right: auto;color: rgb(15, 77, 158);font-size:25px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> ${{product.price}}</p>
+                        <!-- <app-rating [rating]="product.rating"></app-rating> -->
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+    
+        </div>
+        <button class="button-nav" (click)="scroll(100)" >
+            <i class="fa fa-chevron-right fa-3x" style="margin-left: 20px;margin-right: 20px; color: #f68712;" aria-hidden="true"></i>
+        </button>
+    </div>
+   
+</div>
+

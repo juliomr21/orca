@@ -1,0 +1,6 @@
+<!-- <p>rating works! {{rating}}</p> -->
+<div class="rating">
+    <span *ngFor="let star of stars" class="star" [ngClass]="{'filled': star <= rating}">
+      <i class="fas fa-star"></i>
+    </span>
+  </div>

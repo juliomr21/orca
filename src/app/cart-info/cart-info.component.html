@@ -1,0 +1,58 @@
+
+<div>
+   
+    <div *ngIf="!bage">
+        The cart is empty
+    </div>
+    <div *ngIf="bage">
+        <div *ngFor="let it of cart_info">
+            <div  style="display: flex;padding: 1rem;text-align: left;color: #2f3b69;">
+                <div style="width: 65px;">
+                    <img src="{{it.image}}" alt="" style="height: 100%;width: 100%;border-radius: 3px;">
+                </div>
+                <div style="margin-left: 15px;margin-right: auto;
+                       width: 200px;overflow: hidden;text-overflow: ellipsis;
+                       ">
+                    <div>{{it.product}}</div>
+                    <div style="display: flex;width: 135px;">
+                        
+                        <input type="number" class="form-control cant-prod" width="116px" min="1" value="{{it.cant}}"> 
+                        <div style="margin-left: -21px;">
+                            <!-- <i class="fa fa-plus-square" aria-hidden="true"></i> -->
+                            <div style="height: 17px;" ><i class="fa fa-plus-square " aria-hidden="true" style="font-size: 19px;" (click)="change_cant(1,it)"></i></div> 
+                            <div  style="height: 17px;"><i class="fa fa-minus-square" aria-hidden="true" style="font-size: 19px;"(click)="change_cant(-1,it)"></i></div>
+                            
+                        </div>
+                       
+                    </div>
+                   
+                   
+                </div>
+                <div style="width: 135px;text-align: right;" >
+                    <p style="cursor: pointer;" (click)="delete_producto(it.product)"><i class="fa fa-trash" aria-hidden="true"></i></p>
+                    <p>{{it.cant}} X {{it.value}} = <b>{{it.cant*it.value}}</b> </p>
+                </div>
+               
+              
+                
+            </div>
+       
+        </div>
+        <div class="container">
+            <hr>
+        </div>
+        
+        <div style="display: flex;padding: 1rem; color: #2f3b69;">
+            <div>
+                <h2>Total:</h2>
+                </div>
+            <div style="margin-left: auto;"> <h2>$ {{total}} </h2></div>
+        </div>
+        <div class="container" style="padding-bottom: 1rem;">
+            <button class="btn" style="width: 100%;background: #2f3b69;color: aliceblue;" (click)="go_to_payment()">
+                Buy Now
+            </button>
+        </div>
+      
+    </div>
+   
